@@ -4,11 +4,14 @@ import java.awt.*;
 import java.util.Random;
 
 
+enum Direction { HORIZONTAL, VERTICAL }
+
 public abstract class Shape {
    private final Color color;
    private final int size;
    private int posX;
    private int posY;
+   private Direction direction;
 
    public Shape(Color color){
       this.color = color;
