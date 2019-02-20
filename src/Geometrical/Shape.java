@@ -3,7 +3,6 @@ package Geometrical;
 import java.awt.*;
 import java.util.Random;
 
-
 enum Direction { HORIZONTAL, VERTICAL }
 
 public abstract class Shape {
