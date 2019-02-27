@@ -36,9 +36,9 @@ public class ShapeList extends JPanel {
          g.setColor(s.getColor());
 
          if(s instanceof Square)
-            g.fillRect(s.getPosX(), s.getPosY(), s.getShapeSize(), s.getShapeSize());
+            g.fillRect(s.getPosX(), s.getPosY(), s.getSize(), s.getSize());
          else
-            g.fillOval(s.getPosX(), s.getPosY(), s.getShapeSize(), s.getShapeSize());
+            g.fillOval(s.getPosX(), s.getPosY(), s.getSize(), s.getSize());
       }
    }
 
