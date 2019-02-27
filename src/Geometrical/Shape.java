@@ -3,21 +3,24 @@ package Geometrical;
 import java.awt.*;
 import java.util.Random;
 
-enum Direction { HORIZONTAL, VERTICAL }
-
 public abstract class Shape {
    private final Color color;
    private final int size;
    private int posX;
    private int posY;
-   private Direction direction;
+   private double dirX;
+   private double dirY;
+   private int speed;
 
    public Shape(Color color){
-      this.color = color;
       Random r = new Random();
-      size = 10 + r.nextInt(40);
-      posX = r.nextInt(500 - size/2) + size/2;
-      posY = r.nextInt(500 - size/2) + size/2;
+      this.color = color;
+      size = getRandomInt(10,40, r);
+      posX = getRandomInt(size/2, 500, r);
+      posY = getRandomInt(size/2, 500, r);
+      dirX = r.nextDouble();
+      dirY = r.nextDouble();
+      speed = getRandomInt(1,5, r);
    }
 
    public int getPosX() {
@@ -34,5 +37,13 @@ public abstract class Shape {
 
    public void setPosY(int posY) {
       this.posY = posY;
+   }
+
+   private static int getRandomInt(int min, int max, Random r) {
+      if (min >= max) {
+         throw new IllegalArgumentException("max must be greater than min");
+      }
+
+      return r.nextInt((max - min) + 1) + min;
    }
 }
