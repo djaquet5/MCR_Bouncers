@@ -11,13 +11,6 @@ public class ShapeList extends JPanel {
 
    public ShapeList(int nbShapes){
       this.nbShapes = nbShapes;
-   }
-
-   public void drawing() {
-      repaint();
-   }
-
-   public void init() {
       shapes = new Shape[nbShapes];
 
       for(int i = 0; i < nbShapes; ++i){
@@ -30,6 +23,20 @@ public class ShapeList extends JPanel {
 
          shapes[i] = newShape;
       }
+   }
+
+   public void checkShapesMovable(int maxWidth, int maxHeight){
+      for(Shape s : shapes){
+         double newPosX = s.getPosX() + Math.cos(s.getDirection()) / s.getSpeed();
+         double newPosY = s.getPosY() + Math.sin(s.getDirection()) / s.getSpeed();
+
+         if(newPosX < 0 || newPosX > maxWidth || newPosY < 0 || newPosY > maxHeight)
+            s.invertDirection();
+      }
+   }
+
+   public void drawing() {
+      repaint();
    }
 
    @Override

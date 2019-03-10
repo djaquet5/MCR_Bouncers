@@ -9,6 +9,8 @@ public class Square extends Shape {
 
    public void paintComponent(Graphics g) {
       g.setColor(getColor());
-      g.fillRect(getPosX(), getPosY(), getSize(), getSize());
+      g.fillRect((int) getPosX(), (int) getPosY(), getSize(), getSize());
+
+      move();
    }
 }

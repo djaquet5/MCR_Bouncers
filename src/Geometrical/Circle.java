@@ -9,6 +9,8 @@ public class Circle extends Shape {
 
    public void paintComponent(Graphics g) {
       g.setColor(getColor());
-      g.fillOval(getPosX(), getPosY(), getSize(), getSize());
+      g.fillOval((int) getPosX(), (int) getPosY(), getSize(), getSize());
+
+      move();
    }
 }

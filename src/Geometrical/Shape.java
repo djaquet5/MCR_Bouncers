@@ -6,8 +6,8 @@ import java.util.Random;
 public abstract class Shape {
    private final Color color;
    private final int size;
-   private int posX;
-   private int posY;
+   private double posX;
+   private double posY;
    private double direction;     // Direction is in degree and between 0-359
    private int speed;
 
@@ -25,26 +25,37 @@ public abstract class Shape {
       speed = getRandomInt(1,5, r);
    }
 
-   public abstract void paintComponent(Graphics g);
-
    public void move() {
+      posX += Math.cos(direction) / speed;
+      posY += Math.sin(direction) / speed;
+   }
 
+   public void invertDirection() {
+      direction = (direction + 180) % 360;
    }
 
    public Color getColor() {
       return color;
    }
 
-   public int getPosX() {
+   public double getPosX() {
       return posX;
    }
 
-   public int getPosY() {
+   public double getPosY() {
       return posY;
    }
 
    public int getSize() {
       return size;
+   }
+
+   public double getDirection() {
+      return direction;
+   }
+
+   public int getSpeed() {
+      return speed;
    }
 
    private static int getRandomInt(int min, int max, Random r) {
@@ -53,4 +64,6 @@ public abstract class Shape {
 
       return r.nextInt((max - min) + 1) + min;
    }
+
+   public abstract void paintComponent(Graphics g);
 }

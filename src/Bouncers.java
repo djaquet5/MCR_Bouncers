@@ -13,9 +13,9 @@ public class Bouncers {
       bouncers.add(shapes);
       shapes.setVisible(true);
 
-      shapes.init();
-
-      while(true)
+      while(true){
+         shapes.checkShapesMovable(500, 500);
          shapes.repaint();
+      }
    }
 }
