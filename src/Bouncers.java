@@ -1,22 +1,21 @@
 import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Random;
-
-import Geometrical.*;
-import Geometrical.Shape;
 
 public class Bouncers {
 
    public static void main(String[] args){
+      ShapeList shapes = new ShapeList(100);
+
       JFrame bouncers = new JFrame("Bouncers");
-      bouncers.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
       bouncers.setSize(500, 500);
+      bouncers.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       bouncers.setVisible(true);
-
-      ShapeList shapes = new ShapeList();
       bouncers.add(shapes);
+      shapes.setVisible(true);
 
-      shapes.drawing();
+      shapes.init();
+
+      while(true)
+         shapes.repaint();
    }
 }
