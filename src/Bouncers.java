@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Bouncers {
 
@@ -14,7 +15,7 @@ public class Bouncers {
       shapes.setVisible(true);
 
       while(true){
-         shapes.checkShapesMovable(500, 500);
+         shapes.checkShapesMovable(bouncers.getBounds().width, bouncers.getBounds().height);
          shapes.repaint();
       }
    }
