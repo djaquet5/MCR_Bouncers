@@ -7,10 +7,8 @@ import java.util.Random;
 
 public class ShapeList extends JPanel {
    private Shape[] shapes;
-   private int nbShapes;
 
    public ShapeList(int nbShapes){
-      this.nbShapes = nbShapes;
       shapes = new Shape[nbShapes];
 
       for(int i = 0; i < nbShapes; ++i){

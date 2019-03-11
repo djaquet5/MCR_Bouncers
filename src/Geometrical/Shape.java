@@ -17,8 +17,8 @@ public abstract class Shape {
 
       size = getRandomInt(10,40, r);
 
-      posX = getRandomInt(size/2, 500, r);
-      posY = getRandomInt(size/2, 500, r);
+      posX = getRandomInt(0, 485 - size, r);
+      posY = getRandomInt(0, 460 - size, r);
 
       direction = r.nextDouble() % 360;
 
