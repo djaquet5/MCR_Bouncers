@@ -19,7 +19,7 @@ public abstract class Shape {
 
       posX = getRandomInt(0, 485 - size, r);
       posY = getRandomInt(0, 460 - size, r);
-
+      
       direction = r.nextDouble() % 360;
 
       speed = getRandomInt(1,5, r);
@@ -30,8 +30,35 @@ public abstract class Shape {
       posY += Math.sin(direction) / speed;
    }
 
-   public void invertDirection() {
-      direction = (direction + 180) % 360;
+   public void invertDirection(int wall) {
+      /*switch (wall) {
+         case 1:
+            if (direction < 90)
+               direction = 180 - direction;
+            else
+               direction = 180 + (360 - direction);
+            break;
+         case 2:
+            if (direction < 90)
+               direction = 360 - direction;
+            else
+               direction = 180 + (360 - direction);
+            break;
+         case 3:
+            if (direction < 180)
+               direction = 180 - direction;
+            else
+               direction = 270 + (270 - direction);
+            break;
+         case 4:
+            if (direction < 270)
+               direction = 90 + (direction - 180);
+            else
+               direction = 270 - (direction - 270);
+            break;
+         default:
+            break;
+      }*/
    }
 
    public Color getColor() {
