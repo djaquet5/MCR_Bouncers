@@ -28,14 +28,10 @@ public class ShapeList extends JPanel {
          double newPosX = s.getPosX() + Math.cos(s.getDirection()) / s.getSpeed();
          double newPosY = s.getPosY() + Math.sin(s.getDirection()) / s.getSpeed();
 
-         if(newPosX < 0)
-            s.invertDirection(3);
-         else if(newPosX > maxWidth)
-            s.invertDirection(1);
-         else if (newPosY < 0)
-            s.invertDirection(2);
-         else if (newPosY > maxHeight)
-            s.invertDirection(4);
+         if(newPosX < 0 || newPosX > maxWidth)
+            s.invertDirection(true);
+         else if (newPosY < 0 || newPosY > maxHeight)
+            s.invertDirection(false);
       }
    }
 
