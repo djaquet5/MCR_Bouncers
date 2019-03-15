@@ -1,9 +1,20 @@
-public class Bouncers {
+import Geometrical.Bouncable;
+import java.util.LinkedList;
 
-   public static void main(String[] args){
+public class BounceApp {
+   private LinkedList<Bouncable> bouncers;
+   // Autres attributs
+
+   // TODO
+   public BounceApp() {}
+
+   // TODO
+   public void loop() {}
+
+   public static void main(String... args){
 //      ShapeList shapes = new ShapeList(100);
 //
-//      JFrame bouncers = new JFrame("Bouncers");
+//      JFrame bouncers = new JFrame("BounceApp");
 //
 //      bouncers.setSize(500, 500);
 //      bouncers.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -16,5 +27,8 @@ public class Bouncers {
 //         shapes.repaint();
 //      }
       FrameDisplayer.getInstance();
+
+      // Only main line
+//      new BounceApp().loop();
    }
 }

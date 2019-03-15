@@ -1,16 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 
 public class FrameDisplayer implements Displayer {
    private static FrameDisplayer instance;
-   private int width;
-   private int height;
    private JFrame bouncers;
    private ShapeList shapes;
 
    private FrameDisplayer() {
       shapes = new ShapeList(100);
-      bouncers = new JFrame("Bouncers");
+      bouncers = new JFrame("BounceApp");
 
       bouncers.setSize(500, 500);
       bouncers.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -51,6 +50,11 @@ public class FrameDisplayer implements Displayer {
    @Override
    public void setTitle(String s) {
       bouncers.setTitle(s);
+   }
+
+   @Override
+   public void addKeyListener(KeyAdapter ka) {
+
    }
 
    private void moveShapes(){
