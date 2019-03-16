@@ -9,7 +9,6 @@ public abstract class Shape {
    private double posX;
    private double posY;
    private Vector direction;
-   private int speed;
 
    public Shape(Color color){
       this.color = color;
@@ -20,14 +19,12 @@ public abstract class Shape {
       posX = getRandomInt(0, 485 - size, r);
       posY = getRandomInt(0, 460 - size, r);
       
-      direction = new Vector(getRandomInt(-10, 10, r), getRandomInt(-10, 10 ,r));
-
-      speed = getRandomInt(1,5, r);
+      direction = new Vector(r.nextDouble() * 2 - 1, r.nextDouble() * 2 - 1);
    }
 
    public void move() {
-      posX += Math.cos(direction.getAngle()) / speed;
-      posY += Math.sin(direction.getAngle()) / speed;
+      posX += direction.getX();
+      posY += direction.getY();
    }
 
    public void invertDirection(boolean wall) {
@@ -36,6 +33,10 @@ public abstract class Shape {
       } else {
          direction.setY(-direction.getY());
       }
+   }
+
+   public Vector getDirection() {
+      return direction;
    }
 
    public Color getColor() {
@@ -52,14 +53,6 @@ public abstract class Shape {
 
    public int getSize() {
       return size;
-   }
-
-   public double getDirection() {
-      return direction.getAngle();
-   }
-
-   public int getSpeed() {
-      return speed;
    }
 
    private static int getRandomInt(int min, int max, Random r) {

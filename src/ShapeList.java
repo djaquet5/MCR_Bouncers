@@ -25,8 +25,8 @@ public class ShapeList extends JPanel {
 
    public void checkShapesMovable(int maxWidth, int maxHeight){
       for(Shape s : shapes){
-         double newPosX = s.getPosX() + Math.cos(s.getDirection()) / s.getSpeed();
-         double newPosY = s.getPosY() + Math.sin(s.getDirection()) / s.getSpeed();
+         double newPosX = s.getPosX() + s.getDirection().getX();
+         double newPosY = s.getPosY() + s.getDirection().getY();
 
          if(newPosX < 0 || newPosX > maxWidth)
             s.invertDirection(true);

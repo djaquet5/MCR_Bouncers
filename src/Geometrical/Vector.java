@@ -1,43 +1,27 @@
 package Geometrical;
 
 public class Vector {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
-    private double angle;
-
-    public Vector(int x, int y) {
+    public Vector(double x, double y) {
         this.x = x;
         this.y = y;
-        generateAngle();
     }
 
-    public void generateAngle() {
-        angle = Math.floor(Math.tanh(Math.abs(y)/(double)Math.abs(x)));
-        if (y < 0) {
-            angle = 360 - angle;
-        }
-    }
-
-    public double getAngle() {
-        return angle;
-    }
-
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
-        generateAngle();
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
-        generateAngle();
     }
 }
