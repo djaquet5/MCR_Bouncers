@@ -58,7 +58,10 @@ public class FrameDisplayer implements Displayer {
    }
 
    private void moveShapes(){
-      while(true)
+      while(true){
+         shapes.checkShapesMovable(bouncers.getContentPane().getBounds().width, bouncers.getContentPane().getBounds().height);
          shapes.repaint();
+      }
+
    }
 }

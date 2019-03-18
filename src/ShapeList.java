@@ -9,11 +9,12 @@ public class ShapeList extends JPanel {
 
    public ShapeList(int nbShapes){
       shapes = new Shape[nbShapes];
+      Random random = new Random();
 
       for(int i = 0; i < nbShapes; ++i){
          // Random boolean to create a square or a circle
          Shape newShape;
-         if(getRandomBoolean())
+         if(random.nextBoolean())
             newShape = new FilledSquare(Color.YELLOW);
          else
             newShape = new FilledCircle(Color.BLUE);
@@ -34,20 +35,11 @@ public class ShapeList extends JPanel {
       }
    }
 
-   public void drawing() {
-      repaint();
-   }
-
    @Override
    public void paintComponent(Graphics g) {
       super.paintComponent(g);
 
       for(Shape s : shapes)
          s.paintComponent(g);
-   }
-
-   private static boolean getRandomBoolean(){
-      Random random = new Random();
-      return random.nextBoolean();
    }
 }

@@ -5,12 +5,11 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 public class BounceApp {
-   private LinkedList<Bouncable> bouncers = new LinkedList<>();;
-   private Displayer frame = FrameDisplayer.getInstance();
+   private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
    // TODO
    public BounceApp() {
-      frame = FrameDisplayer.getInstance();
+      Displayer frame = FrameDisplayer.getInstance();
       frame.setTitle("Bouncers");
       frame.addKeyListener(new KeyAdapter() {
          @Override
