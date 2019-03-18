@@ -19,7 +19,7 @@ public abstract class Shape {
       posX = getRandomInt(0, 485 - size, r);
       posY = getRandomInt(0, 460 - size, r);
       
-      direction = new Vector(r.nextDouble() * 2 - 1, r.nextDouble() * 2 - 1);
+      direction = new Vector((r.nextDouble()*2) - 1, (r.nextDouble()*2) - 1);
    }
 
    public void move() {
