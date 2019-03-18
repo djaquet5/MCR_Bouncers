@@ -1,6 +1,5 @@
 import Geometrical.*;
 import Geometrical.Shape;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -15,9 +14,9 @@ public class ShapeList extends JPanel {
          // Random boolean to create a square or a circle
          Shape newShape;
          if(getRandomBoolean())
-            newShape = new Square(Color.YELLOW);
+            newShape = new FilledSquare(Color.YELLOW);
          else
-            newShape = new Circle(Color.BLUE);
+            newShape = new FilledCircle(Color.BLUE);
 
          shapes[i] = newShape;
       }

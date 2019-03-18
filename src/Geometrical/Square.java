@@ -2,14 +2,13 @@ package Geometrical;
 
 import java.awt.*;
 
-public class Square extends Shape {
+public abstract class Square extends Shape {
    public Square(Color color) {
       super(color);
    }
 
    public void paintComponent(Graphics g) {
       g.setColor(getColor());
-      g.fillRect((int) getPosX(), (int) getPosY(), getSize(), getSize());
 
       move();
    }

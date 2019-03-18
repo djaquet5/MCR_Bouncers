@@ -9,7 +9,7 @@ public class FrameDisplayer implements Displayer {
 
    private FrameDisplayer() {
       shapes = new ShapeList(100);
-      bouncers = new JFrame("BounceApp");
+      bouncers = new JFrame();
 
       bouncers.setSize(500, 500);
       bouncers.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -54,7 +54,7 @@ public class FrameDisplayer implements Displayer {
 
    @Override
    public void addKeyListener(KeyAdapter ka) {
-
+      bouncers.addKeyListener(ka);
    }
 
    private void moveShapes(){

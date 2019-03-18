@@ -1,18 +1,46 @@
 import Geometrical.Bouncable;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 public class BounceApp {
-   private LinkedList<Bouncable> bouncers;
-   // Autres attributs
+   private LinkedList<Bouncable> bouncers = new LinkedList<>();;
+   private Displayer frame = FrameDisplayer.getInstance();
 
    // TODO
-   public BounceApp() {}
+   public BounceApp() {
+      frame = FrameDisplayer.getInstance();
+      frame.setTitle("Bouncers");
+      frame.addKeyListener(new KeyAdapter() {
+         @Override
+         public void keyPressed(KeyEvent e) {
+            switch(e.getKeyCode()){
+               case KeyEvent.VK_E:
+                  System.out.println("E");
+                  break;
+
+               case KeyEvent.VK_B:
+                  System.out.println("B");
+                  break;
+
+               case KeyEvent.VK_F:
+                  System.out.println("F");
+                  break;
+
+               case KeyEvent.VK_Q:
+                  System.out.println("Q");
+                  break;
+            }
+         }
+      });
+   }
 
    // TODO
    public void loop() {}
 
    public static void main(String... args){
-//      ShapeList shapes = new ShapeList(100);
+//      ShapeList shapes = new ShcapeList(100);
 //
 //      JFrame bouncers = new JFrame("BounceApp");
 //
@@ -26,9 +54,9 @@ public class BounceApp {
 //         shapes.checkShapesMovable(bouncers.getBounds().width, bouncers.getBounds().height);
 //         shapes.repaint();
 //      }
+      new BounceApp();
       FrameDisplayer.getInstance();
 
       // Only main line
-//      new BounceApp().loop();
    }
 }
