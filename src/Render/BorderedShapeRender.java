@@ -11,6 +11,7 @@ public class BorderedShapeRender {
       g.setColor(b.getColor());
       g.setStroke(new BasicStroke(STROKE_SIZE));
 
+      // Cast in java.awt.Shape
       g.draw((Shape)b.getShape());
    }
 }
