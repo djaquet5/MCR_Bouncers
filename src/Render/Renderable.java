@@ -1,4 +1,6 @@
-package Geometrical;
+package Render;
+
+import Geometrical.Bouncable;
 
 import java.awt.*;
 

@@ -6,13 +6,13 @@ import java.util.LinkedList;
 
 public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
+   private Displayer frame;
 
    /**
     * The main part of the "app"
     */
-   // TODO
    public BounceApp() {
-      Displayer frame = FrameDisplayer.getInstance();
+      frame = FrameDisplayer.getInstance();
       frame.setTitle("Bouncers");
       frame.addKeyListener(new KeyAdapter() {
          @Override
@@ -37,12 +37,13 @@ public class BounceApp {
          }
       });
    }
-
+   
    /**
     * the program loop
     */
-   // TODO
-   public void loop() {}
+   public void loop() {
+      ((FrameDisplayer) frame).moveShapes();
+   }
 
    public static void main(String... args){
 //      ShapeList shapes = new ShcapeList(100);
@@ -59,8 +60,7 @@ public class BounceApp {
 //         shapes.checkShapesMovable(bouncers.getBounds().width, bouncers.getBounds().height);
 //         shapes.repaint();
 //      }
-      new BounceApp();
-      FrameDisplayer.getInstance();
+      new BounceApp().loop();
 
       // Only main line
    }
