@@ -5,7 +5,7 @@ import java.awt.*;
 public interface Bouncable {
    void draw();
 
-   void moce();
+   void move();
 
    Renderable getRenderer();
 
