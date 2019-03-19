@@ -7,6 +7,10 @@ import java.util.Random;
 public class ShapeList extends JPanel {
    private Shape[] shapes;
 
+   /**
+    * ShapeList constructor
+    * @param nbShapes the number of shapes in the list
+    */
    public ShapeList(int nbShapes){
       shapes = new Shape[nbShapes];
       Random random = new Random();
@@ -23,6 +27,11 @@ public class ShapeList extends JPanel {
       }
    }
 
+   /**
+    * Check if the next movement of the shapes will result in them hitting a wall and, if so, inverting their direction
+    * @param maxWidth the width of the frame
+    * @param maxHeight the height of the frame
+    */
    public void checkShapesMovable(int maxWidth, int maxHeight){
       for(Shape s : shapes){
          double newPosX = s.getPosX() + s.getDirection().getX();

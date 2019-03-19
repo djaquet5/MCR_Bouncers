@@ -7,6 +7,9 @@ import java.util.LinkedList;
 public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
 
+   /**
+    * The main part of the "app"
+    */
    // TODO
    public BounceApp() {
       Displayer frame = FrameDisplayer.getInstance();
@@ -35,6 +38,9 @@ public class BounceApp {
       });
    }
 
+   /**
+    * the program loop
+    */
    // TODO
    public void loop() {}
 

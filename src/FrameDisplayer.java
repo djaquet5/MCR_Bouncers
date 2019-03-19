@@ -7,6 +7,9 @@ public class FrameDisplayer implements Displayer {
    private JFrame bouncers;
    private ShapeList shapes;
 
+   /**
+    * FrameDisplayer constructor
+    */
    private FrameDisplayer() {
       shapes = new ShapeList(100);
       bouncers = new JFrame();
@@ -20,6 +23,10 @@ public class FrameDisplayer implements Displayer {
       moveShapes();
    }
 
+   /**
+    * Instance getter of FrameDisplayer
+    * @return the instance of FrameDisplayer
+    */
    public static FrameDisplayer getInstance() {
       if(instance == null)
          instance = new FrameDisplayer();
@@ -57,6 +64,9 @@ public class FrameDisplayer implements Displayer {
       bouncers.addKeyListener(ka);
    }
 
+   /**
+    * Moves all the shapes in the frame
+    */
    private void moveShapes(){
       while(true){
          shapes.checkShapesMovable(bouncers.getContentPane().getBounds().width, bouncers.getContentPane().getBounds().height);
