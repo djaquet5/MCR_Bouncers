@@ -4,6 +4,11 @@ public class Vector {
     private double x;
     private double y;
 
+    /**
+     * Vector Constructor
+     * @param x the vector abscissa
+     * @param y the vector ordinate
+     */
     public Vector(double x, double y) {
         this.x = x;
         this.y = y;

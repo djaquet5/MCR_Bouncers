@@ -8,6 +8,9 @@ public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
    private Displayer frame;
 
+   /**
+    * The main part of the "app"
+    */
    public BounceApp() {
       frame = FrameDisplayer.getInstance();
       frame.setTitle("Bouncers");
@@ -34,7 +37,10 @@ public class BounceApp {
          }
       });
    }
-
+   
+   /**
+    * the program loop
+    */
    public void loop() {
       ((FrameDisplayer) frame).moveShapes();
    }
