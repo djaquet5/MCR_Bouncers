@@ -18,6 +18,7 @@ public class BorderedCircle extends Circle {
    public void draw() {
       Graphics2D graphics2D = FrameDisplayer.getInstance().getGraphics();
       graphics2D.setColor(getColor());
+      graphics2D.setStroke(new BasicStroke(1));
       graphics2D.drawOval(getPosX(), getPosY(), getSize(), getSize());
    }
 
