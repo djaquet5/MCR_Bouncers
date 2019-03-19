@@ -1,32 +1,32 @@
 package Geometrical;
 
 public class Vector {
-    private double x;
-    private double y;
+    private int x;
+    private int y;
 
     /**
      * Vector Constructor
      * @param x the vector abscissa
      * @param y the vector ordinate
      */
-    public Vector(double x, double y) {
+    public Vector(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 }

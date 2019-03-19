@@ -1,6 +1,6 @@
 package Geometrical;
 
-import Render.Renderable;
+import Display.FrameDisplayer;
 
 import java.awt.*;
 import java.util.Random;
@@ -8,11 +8,10 @@ import java.util.Random;
 public abstract class Shape implements Bouncable {
    private final Color color;
    private final int size;
-   private double posX;
-   private double posY;
+   private int posX;
+   private int posY;
    private Vector direction;
-   private Renderable renderer;
-   
+
    /**
     * Shape constructor
     * @param color the color of the shape
@@ -26,13 +25,14 @@ public abstract class Shape implements Bouncable {
       posX = getRandomInt(0, 485 - size, r);
       posY = getRandomInt(0, 460 - size, r);
       
-      direction = new Vector((r.nextDouble()*2) - 1, (r.nextDouble()*2) - 1);
+      direction = new Vector(getRandomInt(-10, 10, r), getRandomInt(-10, 10, r));
    }
 
    /**
     * Moves the shape
     */
    public void move() {
+      checkShapesMovable(FrameDisplayer.getInstance().getWidth(), FrameDisplayer.getInstance().getHeight());
       posX += direction.getX();
       posY += direction.getY();
    }
@@ -49,26 +49,40 @@ public abstract class Shape implements Bouncable {
       }
    }
 
+   /**
+    * Check if the next movement of the shapes will result in them hitting a wall and, if so, inverting their direction
+    * @param maxWidth the width of the frame
+    * @param maxHeight the height of the frame
+    */
+   public void checkShapesMovable(int maxWidth, int maxHeight){
+      double newPosX = posX + direction.getX();
+      double newPosY = posY + direction.getY();
 
-   public Vector getDirection() {
-      return direction;
+         if(newPosX < 0 || newPosX > maxWidth)
+            invertDirection(true);
+         else if (newPosY < 0 || newPosY > maxHeight)
+            invertDirection(false);
    }
-
-   @Override
+   
    public Color getColor() {
       return color;
    }
 
-   public double getPosX() {
+   public int getPosX() {
       return posX;
    }
 
-   public double getPosY() {
+   public int getPosY() {
       return posY;
    }
 
    public int getSize() {
       return size;
+   }
+
+   @Override
+   public Shape getShape() {
+      return this;
    }
 
    /**
@@ -83,25 +97,5 @@ public abstract class Shape implements Bouncable {
          throw new IllegalArgumentException("max must be greater than min");
 
       return r.nextInt((max - min) + 1) + min;
-   }
-
-   /**
-    * Paints the shape
-    * @param g a "Graphics" object that defines the shape
-    */
-   public abstract void paintComponent(Graphics g);
-
-   @Override
-   public Renderable getRenderer() {
-      return renderer;
-   }
-
-   @Override
-   public Shape getShape() {
-      return this;
-   }
-
-   public void draw() {
-      //paintComponent();
    }
 }

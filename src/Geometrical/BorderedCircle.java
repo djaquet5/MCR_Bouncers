@@ -1,5 +1,8 @@
 package Geometrical;
 
+import Display.FrameDisplayer;
+import Render.Renderable;
+
 import java.awt.*;
 
 public class BorderedCircle extends Circle {
@@ -11,8 +14,15 @@ public class BorderedCircle extends Circle {
       super(color);
    }
 
-   public void paintComponent(Graphics g) {
-      super.paintComponent(g);
-      g.drawOval((int) getPosX(), (int) getPosY(), getSize(), getSize());
+   @Override
+   public void draw() {
+      Graphics2D graphics2D = FrameDisplayer.getInstance().getGraphics();
+      graphics2D.setColor(getColor());
+      graphics2D.drawOval(getPosX(), getPosY(), getSize(), getSize());
+   }
+
+   @Override
+   public Renderable getRenderer() {
+      return (g, b) -> g.setColor(b.getColor());
    }
 }

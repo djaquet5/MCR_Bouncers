@@ -1,5 +1,8 @@
 package Geometrical;
 
+import Display.FrameDisplayer;
+import Render.Renderable;
+
 import java.awt.*;
 
 public class FilledSquare extends Square {
@@ -11,9 +14,15 @@ public class FilledSquare extends Square {
       super(color);
    }
 
-   public void paintComponent(Graphics g) {
-      super.paintComponent(g);
+   @Override
+   public void draw() {
+      Graphics2D graphics2D = FrameDisplayer.getInstance().getGraphics();
+      graphics2D.setColor(getColor());
+      graphics2D.fillRect(getPosX(), getPosY(), getSize(), getSize());
+   }
 
-      g.fillRect((int) getPosX(), (int) getPosY(), getSize(), getSize());
+   @Override
+   public Renderable getRenderer() {
+      return (g, b) -> g.setColor(b.getColor());
    }
 }

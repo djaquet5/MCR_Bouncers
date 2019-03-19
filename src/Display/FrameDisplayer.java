@@ -1,24 +1,29 @@
+package Display;
+
+import Geometrical.Bouncable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
+import java.awt.image.BufferedImage;
 
 public class FrameDisplayer implements Displayer {
    private static FrameDisplayer instance;
    private JFrame bouncers;
-   private ShapeList shapes;
+   private BufferedImage bufferedImage;
 
    /**
     * FrameDisplayer constructor
     */
    private FrameDisplayer() {
-      shapes = new ShapeList(100);
       bouncers = new JFrame();
-
+      bouncers.setContentPane(new JPanel());
+      bouncers.getContentPane().setBackground(Color.white);
       bouncers.setSize(500, 500);
       bouncers.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       bouncers.setVisible(true);
-      bouncers.add(shapes);
-      shapes.setVisible(true);
+
+      bufferedImage = new BufferedImage(bouncers.getContentPane().getWidth(), bouncers.getContentPane().getHeight(), BufferedImage.TYPE_INT_ARGB);
    }
 
    /**
@@ -49,7 +54,13 @@ public class FrameDisplayer implements Displayer {
 
    @Override
    public void repaint() {
-      bouncers.repaint();
+      for (Bouncable bouncable : BounceApp.getBouncers()) {
+         bouncable.move();
+         bouncable.draw();
+      }
+      getGraphics();
+      bouncers.getContentPane().getGraphics().drawImage(bufferedImage, 0, 0, null);
+      bufferedImage = (BufferedImage) bouncers.getContentPane().createImage(getWidth(), getHeight());
    }
 
    @Override
@@ -60,16 +71,5 @@ public class FrameDisplayer implements Displayer {
    @Override
    public void addKeyListener(KeyAdapter ka) {
       bouncers.addKeyListener(ka);
-   }
-
-   /**
-    * Moves all the shapes in the frame
-    */
-   public void moveShapes(){
-      while(true){
-         shapes.checkShapesMovable(bouncers.getContentPane().getBounds().width, bouncers.getContentPane().getBounds().height);
-         shapes.repaint();
-      }
-
    }
 }
