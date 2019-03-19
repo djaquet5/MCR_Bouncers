@@ -1,14 +1,18 @@
 package Geometrical;
 
+import Render.Renderable;
+
 import java.awt.*;
 import java.util.Random;
 
-public abstract class Shape {
+public abstract class Shape implements Bouncable {
    private final Color color;
    private final int size;
    private double posX;
    private double posY;
    private Vector direction;
+
+   private Renderable renderer;
 
    public Shape(Color color){
       this.color = color;
@@ -39,6 +43,7 @@ public abstract class Shape {
       return direction;
    }
 
+   @Override
    public Color getColor() {
       return color;
    }
@@ -63,4 +68,18 @@ public abstract class Shape {
    }
 
    public abstract void paintComponent(Graphics g);
+
+   @Override
+   public Renderable getRenderer() {
+      return renderer;
+   }
+
+   @Override
+   public Shape getShape() {
+      return this;
+   }
+
+   public void draw() {
+      //paintComponent();
+   }
 }

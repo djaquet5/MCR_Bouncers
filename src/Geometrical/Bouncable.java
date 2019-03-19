@@ -1,5 +1,7 @@
 package Geometrical;
 
+import Render.Renderable;
+
 import java.awt.*;
 
 public interface Bouncable {

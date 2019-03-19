@@ -16,8 +16,6 @@ public class FrameDisplayer implements Displayer {
       bouncers.setVisible(true);
       bouncers.add(shapes);
       shapes.setVisible(true);
-
-      moveShapes();
    }
 
    public static FrameDisplayer getInstance() {
@@ -57,7 +55,7 @@ public class FrameDisplayer implements Displayer {
       bouncers.addKeyListener(ka);
    }
 
-   private void moveShapes(){
+   public void moveShapes(){
       while(true){
          shapes.checkShapesMovable(bouncers.getContentPane().getBounds().width, bouncers.getContentPane().getBounds().height);
          shapes.repaint();
