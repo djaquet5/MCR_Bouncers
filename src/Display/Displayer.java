@@ -14,5 +14,5 @@ public interface Displayer {
 
    void setTitle(String s);
 
-   void addKeyListener(KeyAdapter ka);
+   void addKeyListener(KeyAdapter key);
 }
