@@ -2,6 +2,7 @@ package Factory;
 
 import Geometrical.Bouncable;
 import Geometrical.FilledCircle;
+import Geometrical.FilledSquare;
 import Render.FilledShapeRender;
 
 import java.awt.*;
@@ -28,6 +29,6 @@ public class FilledShapeFactory implements ShapeFactory {
 
    @Override
    public Bouncable createSquare() {
-      return new FilledCircle(Color.YELLOW, renderer);
+      return new FilledSquare(Color.YELLOW, renderer);
    }
 }
