@@ -20,7 +20,7 @@ public class BounceApp {
    private BorderedShapeFactory borderedFactory;
 
    /**
-    * Constructor of the
+    * Constructor of BounceApp
     */
    public BounceApp() {
       filledFactory = FilledShapeFactory.getInstance();
@@ -55,6 +55,8 @@ public class BounceApp {
             }
          }
       });
+
+      createShapes(filledFactory);
    }
    
    /**
@@ -75,6 +77,10 @@ public class BounceApp {
       }
    }
 
+   /**
+    * Creates shapes
+    * @param f a shape factory
+    */
    private void createShapes(ShapeFactory f){
       for(int i = 0; i < nbShapes; ++i)
          tmp.add(f.createCircle());
