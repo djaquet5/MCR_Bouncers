@@ -7,7 +7,8 @@ import java.awt.*;
 public class FilledCircle extends Circle {
    /**
     * Filled Circle constructor
-    * @param color the circle's color
+    * @param color Circle's color
+    * @param render Renderer of the shape
     */
    public FilledCircle(Color color, Renderable render) {
       super(color, render);

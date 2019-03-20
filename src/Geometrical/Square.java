@@ -9,6 +9,8 @@ public abstract class Square extends BouncableShape {
    private Shape shape;
    /**
     * Generic Square constructor
+    * @param color the color of the square's border
+    * @param render Renderer of the shape
     */
    public Square(Color color, Renderable render) {
       super(color, render);

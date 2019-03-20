@@ -19,6 +19,7 @@ public abstract class BouncableShape implements Bouncable {
    /**
     * BouncableShape constructor
     * @param color the color of the shape
+    * @param renderer Renderer of the shape
     */
    public BouncableShape(Color color, Renderable renderer){
       this.color = color;

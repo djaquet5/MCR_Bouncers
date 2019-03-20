@@ -8,8 +8,11 @@ import java.awt.geom.Ellipse2D;
 
 public abstract class Circle extends BouncableShape {
    private Shape shape;
+
    /**
     * Generic Circle constructor
+    * @param color the color of the circle's border
+    * @param render Renderer of the shape
     */
    public Circle(Color color, Renderable render) {
       super(color, render);
