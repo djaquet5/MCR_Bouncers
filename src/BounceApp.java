@@ -10,6 +10,8 @@ import java.util.LinkedList;
 
 public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
+
+   // To avoid ConcurrentModificationException
    private LinkedList<Bouncable> tmp = new LinkedList<>();
 
    private int nbShapes = 10;

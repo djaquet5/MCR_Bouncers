@@ -62,7 +62,7 @@ public class FrameDisplayer implements Displayer {
    }
 
    @Override
-   public void addKeyListener(KeyAdapter ka) {
-      bouncers.addKeyListener(ka);
+   public void addKeyListener(KeyAdapter key) {
+      bouncers.addKeyListener(key);
    }
 }
