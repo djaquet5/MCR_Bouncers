@@ -25,7 +25,7 @@ public abstract class BouncableShape implements Bouncable {
       posX = getRandomInt(0, 485 - size, r);
       posY = getRandomInt(0, 460 - size, r);
       
-      direction = new Vector(getRandomInt(-10, 10, r), getRandomInt(-10, 10, r));
+      direction = new Vector(getRandomInt(-5, 5, r), getRandomInt(-5, 5, r));
    }
 
    /**
