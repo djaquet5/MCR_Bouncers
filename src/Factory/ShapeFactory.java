@@ -12,7 +12,7 @@ public abstract class ShapeFactory {
 
    public void createShapes() {
       Random random = new Random();
-      int nbShapes = 100;
+      int nbShapes = 10;
 
       for(int i = 0; i < nbShapes; ++i) {
          Bouncable newShape;
