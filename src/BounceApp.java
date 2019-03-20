@@ -1,5 +1,4 @@
-package Display;
-
+import Display.FrameDisplayer;
 import Factory.BorderedShapeFactory;
 import Factory.FilledShapeFactory;
 import Factory.ShapeFactory;
@@ -8,7 +7,7 @@ import Geometrical.Bouncable;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
+import java.util.Timer;
 
 public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
@@ -60,18 +59,17 @@ public class BounceApp {
    /**
     * the program loop
     */
-   public void loop() throws InterruptedException{
+   public void loop() {
       while (true){
          for(Bouncable b : bouncers){
             b.move();
             b.draw();
          }
-
          frame.repaint();
 
          if(!tmp.isEmpty()){
             bouncers.addAll(tmp);
-//            tmp.clear();
+            tmp.clear();
          }
       }
    }
@@ -88,10 +86,6 @@ public class BounceApp {
     * The main part of the "app"
     */
    public static void main(String... args){
-      try {
-         new BounceApp().loop();
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
+      new BounceApp().loop();
    }
 }

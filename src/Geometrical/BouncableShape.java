@@ -4,6 +4,7 @@ import Display.FrameDisplayer;
 import Render.Renderable;
 
 import java.awt.*;
+import java.awt.geom.RectangularShape;
 import java.util.Random;
 
 public abstract class BouncableShape implements Bouncable {
@@ -39,9 +40,13 @@ public abstract class BouncableShape implements Bouncable {
     * Moves the shape
     */
    public void move() {
-      checkShapesMovable(FrameDisplayer.getInstance().getWidth(), FrameDisplayer.getInstance().getHeight());
+      checkShapesMovable(frame.getWidth(), frame.getHeight());
       posX += direction.getX();
       posY += direction.getY();
+
+      // Display the new frame
+      // RectangularShape is the super class of Ellipse2D.Double and Rectangle2D.Double
+      ((RectangularShape) (getShape())).setFrame(posX, posY, size, size);
    }
 
    /**
