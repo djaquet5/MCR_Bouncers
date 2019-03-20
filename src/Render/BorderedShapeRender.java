@@ -5,7 +5,7 @@ import Geometrical.Bouncable;
 import java.awt.*;
 
 public class BorderedShapeRender implements Renderable{
-   private final int STROKE_SIZE = 5;
+   private final int STROKE_SIZE = 2;
 
    @Override
    public void display(Graphics2D g, Bouncable b) {
