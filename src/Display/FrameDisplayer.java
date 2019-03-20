@@ -1,7 +1,5 @@
 package Display;
 
-import Geometrical.Bouncable;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -54,8 +52,6 @@ public class FrameDisplayer implements Displayer {
 
    @Override
    public void repaint() {
-
-      getGraphics();
       bouncers.getContentPane().getGraphics().drawImage(bufferedImage, 0, 0, null);
       bufferedImage = (BufferedImage) bouncers.getContentPane().createImage(getWidth(), getHeight());
    }

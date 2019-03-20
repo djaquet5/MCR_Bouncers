@@ -8,7 +8,6 @@ import Geometrical.Bouncable;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
 
 public class BounceApp {
    private LinkedList<Bouncable> bouncers = new LinkedList<>();
@@ -60,7 +59,7 @@ public class BounceApp {
    /**
     * the program loop
     */
-   public void loop() throws InterruptedException{
+   public void loop() {
       while (true){
          for(Bouncable b : bouncers){
             b.move();
@@ -87,10 +86,6 @@ public class BounceApp {
     * The main part of the "app"
     */
    public static void main(String... args){
-      try {
-         new BounceApp().loop();
-      } catch (InterruptedException e) {
-         e.printStackTrace();
-      }
+      new BounceApp().loop();
    }
 }
