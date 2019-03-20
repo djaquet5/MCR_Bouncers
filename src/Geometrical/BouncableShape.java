@@ -39,6 +39,7 @@ public abstract class BouncableShape implements Bouncable {
    /**
     * Moves the shape
     */
+   @Override
    public void move() {
       checkShapesMovable(frame.getWidth(), frame.getHeight());
       posX += direction.getX();
@@ -75,7 +76,8 @@ public abstract class BouncableShape implements Bouncable {
          else if (newPosY < 0 || newPosY > maxHeight)
             invertDirection(false);
    }
-   
+
+   @Override
    public Color getColor() {
       return color;
    }
