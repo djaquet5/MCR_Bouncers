@@ -33,7 +33,7 @@ public abstract class BouncableShape implements Bouncable {
       posX = getRandomInt(0, frame.getWidth() - size, r);
       posY = getRandomInt(0, frame.getHeight() - size, r);
       
-      direction = new Vector(getRandomInt(-5, 5, r), getRandomInt(-5, 5, r));
+      direction = new Vector(getRandomInt(-10, 10, r), getRandomInt(-10, 10, r));
    }
 
    /**
