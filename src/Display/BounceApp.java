@@ -20,7 +20,7 @@ public class BounceApp {
    private BorderedShapeFactory borderedFactory;
 
    /**
-    * Constructor of the window
+    * Constructor of the
     */
    public BounceApp() {
       filledFactory = FilledShapeFactory.getInstance();
@@ -66,11 +66,12 @@ public class BounceApp {
             b.move();
             b.draw();
          }
+
          frame.repaint();
 
          if(!tmp.isEmpty()){
             bouncers.addAll(tmp);
-            tmp.clear();
+//            tmp.clear();
          }
       }
    }
