@@ -7,7 +7,6 @@ import java.awt.geom.Rectangle2D;
 
 public abstract class Square extends BouncableShape {
    private Shape shape;
-
    /**
     * Generic Square constructor
     */

@@ -11,10 +11,17 @@ public class BorderedShapeFactory implements ShapeFactory {
    private static BorderedShapeFactory instance;
    private BorderedShapeRender renderer;
 
+   /**
+    * Border Shape Factory Constructor
+    */
    private BorderedShapeFactory() {
       renderer = new BorderedShapeRender();
    }
 
+   /**
+    * Instance Getter of BorderedShapeFactory
+    * @return the instance
+    */
    public static BorderedShapeFactory getInstance() {
       if (instance == null)
          instance = new BorderedShapeFactory();

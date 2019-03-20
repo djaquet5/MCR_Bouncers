@@ -11,10 +11,17 @@ public class FilledShapeFactory implements ShapeFactory {
    private static FilledShapeFactory instance;
    private FilledShapeRender renderer;
 
+   /**
+    * Filled Shape Factory Constructor
+    */
    private FilledShapeFactory() {
       renderer = new FilledShapeRender();
    }
 
+   /**
+    * Instance Getter of FilledShapeFactory
+    * @return the instance
+    */
    public static FilledShapeFactory getInstance() {
       if (instance == null)
          instance = new FilledShapeFactory();
