@@ -2,13 +2,17 @@ package Factory;
 
 import Geometrical.Bouncable;
 import Geometrical.FilledCircle;
+import Render.FilledShapeRender;
 
 import java.awt.*;
 
 public class FilledShapeFactory implements ShapeFactory {
    private static FilledShapeFactory instance;
+   private FilledShapeRender renderer;
 
-   private FilledShapeFactory() {}
+   private FilledShapeFactory() {
+      renderer = new FilledShapeRender();
+   }
 
    public static FilledShapeFactory getInstance() {
       if (instance == null)
@@ -19,11 +23,11 @@ public class FilledShapeFactory implements ShapeFactory {
 
    @Override
    public Bouncable createCircle() {
-      return new FilledCircle(Color.BLUE);
+      return new FilledCircle(Color.BLUE, renderer);
    }
 
    @Override
    public Bouncable createSquare() {
-      return new FilledCircle(Color.YELLOW);
+      return new FilledCircle(Color.YELLOW, renderer);
    }
 }

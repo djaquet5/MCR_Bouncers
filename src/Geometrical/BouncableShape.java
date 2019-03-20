@@ -1,8 +1,10 @@
 package Geometrical;
 
 import Display.FrameDisplayer;
+import Render.Renderable;
 
 import java.awt.*;
+import java.awt.geom.RectangularShape;
 import java.util.Random;
 
 public abstract class BouncableShape implements Bouncable {
@@ -11,19 +13,25 @@ public abstract class BouncableShape implements Bouncable {
    private int posX;
    private int posY;
    private Vector direction;
+   private Renderable renderer;
+   private FrameDisplayer frame;
 
    /**
     * BouncableShape constructor
     * @param color the color of the shape
     */
-   public BouncableShape(Color color){
+   public BouncableShape(Color color, Renderable renderer){
       this.color = color;
+      this.renderer = renderer;
+
+      frame = FrameDisplayer.getInstance();
+
       Random r = new Random();
 
       size = getRandomInt(10,40, r);
 
-      posX = getRandomInt(0, 485 - size, r);
-      posY = getRandomInt(0, 460 - size, r);
+      posX = getRandomInt(0, frame.getWidth() - size, r);
+      posY = getRandomInt(0, frame.getHeight() - size, r);
       
       direction = new Vector(getRandomInt(-5, 5, r), getRandomInt(-5, 5, r));
    }
@@ -32,9 +40,13 @@ public abstract class BouncableShape implements Bouncable {
     * Moves the shape
     */
    public void move() {
-      checkShapesMovable(FrameDisplayer.getInstance().getWidth(), FrameDisplayer.getInstance().getHeight());
+      checkShapesMovable(frame.getWidth(), frame.getHeight());
       posX += direction.getX();
       posY += direction.getY();
+
+      // Display the new frame
+      // RectangularShape is the super class of Ellipse2D.Double and Rectangle2D.Double
+      ((RectangularShape) (getShape())).setFrame(posX, posY, size, size);
    }
 
    /**
@@ -81,8 +93,13 @@ public abstract class BouncableShape implements Bouncable {
    }
 
    @Override
-   public BouncableShape getShape() {
-      return this;
+   public Renderable getRenderer() {
+      return renderer;
+   }
+
+   @Override
+   public void draw() {
+      renderer.display(frame.getGraphics(), this);
    }
 
    /**

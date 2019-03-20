@@ -3,13 +3,17 @@ package Factory;
 import Geometrical.BorderedCircle;
 import Geometrical.BorderedSquare;
 import Geometrical.Bouncable;
+import Render.BorderedShapeRender;
 
 import java.awt.*;
 
 public class BorderedShapeFactory implements ShapeFactory {
    private static BorderedShapeFactory instance;
+   private BorderedShapeRender renderer;
 
-   private BorderedShapeFactory() {}
+   private BorderedShapeFactory() {
+      renderer = new BorderedShapeRender();
+   }
 
    public static BorderedShapeFactory getInstance() {
       if (instance == null)
@@ -20,11 +24,11 @@ public class BorderedShapeFactory implements ShapeFactory {
 
    @Override
    public Bouncable createCircle() {
-      return new BorderedCircle(Color.GREEN);
+      return new BorderedCircle(Color.GREEN, renderer);
    }
 
    @Override
    public Bouncable createSquare() {
-      return new BorderedSquare(Color.RED);
+      return new BorderedSquare(Color.RED, renderer);
    }
 }

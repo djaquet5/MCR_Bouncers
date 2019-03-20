@@ -1,5 +1,4 @@
-package Display;
-
+import Display.FrameDisplayer;
 import Factory.BorderedShapeFactory;
 import Factory.FilledShapeFactory;
 import Factory.ShapeFactory;
@@ -19,7 +18,7 @@ public class BounceApp {
    private BorderedShapeFactory borderedFactory;
 
    /**
-    * Constructor of the window
+    * Constructor of the
     */
    public BounceApp() {
       filledFactory = FilledShapeFactory.getInstance();

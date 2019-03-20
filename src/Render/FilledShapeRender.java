@@ -6,7 +6,7 @@ import java.awt.*;
 public class FilledShapeRender implements Renderable {
    @Override
    public void display(Graphics2D g, Bouncable b) {
-      Shape s = (Shape) b.getShape();
+      Shape s = b.getShape();
 
       g.setColor(b.getColor());
       g.fill(s);
