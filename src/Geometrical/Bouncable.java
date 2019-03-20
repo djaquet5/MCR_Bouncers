@@ -13,5 +13,5 @@ public interface Bouncable {
 
    Color getColor();
 
-   Shape getShape();
+   BouncableShape getShape();
 }

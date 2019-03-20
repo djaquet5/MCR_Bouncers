@@ -5,7 +5,7 @@ import Display.FrameDisplayer;
 import java.awt.*;
 import java.util.Random;
 
-public abstract class Shape implements Bouncable {
+public abstract class BouncableShape implements Bouncable {
    private final Color color;
    private final int size;
    private int posX;
@@ -13,10 +13,10 @@ public abstract class Shape implements Bouncable {
    private Vector direction;
 
    /**
-    * Shape constructor
+    * BouncableShape constructor
     * @param color the color of the shape
     */
-   public Shape(Color color){
+   public BouncableShape(Color color){
       this.color = color;
       Random r = new Random();
 
@@ -81,7 +81,7 @@ public abstract class Shape implements Bouncable {
    }
 
    @Override
-   public Shape getShape() {
+   public BouncableShape getShape() {
       return this;
    }
 

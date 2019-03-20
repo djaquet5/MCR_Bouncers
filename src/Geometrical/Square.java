@@ -2,7 +2,7 @@ package Geometrical;
 
 import java.awt.*;
 
-public abstract class Square extends Shape {
+public abstract class Square extends BouncableShape {
    /**
     * Generic Square constructor
     */
